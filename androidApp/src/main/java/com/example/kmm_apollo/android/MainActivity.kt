@@ -2,7 +2,7 @@ package com.example.kmm_apollo.android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.kmm_apollo.Greeting
+import com.example.kmm_apollo.shared.Greeting
 import android.widget.TextView
 
 fun greet(): String {

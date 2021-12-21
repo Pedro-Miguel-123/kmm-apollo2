@@ -1,4 +1,4 @@
-package com.example.kmm_apollo
+package com.example.kmm_apollo.shared
 
 import platform.UIKit.UIDevice
 
