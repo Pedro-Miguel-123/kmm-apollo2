@@ -5,7 +5,7 @@ plugins {
     kotlin("plugin.serialization")
     id("com.android.library")
     id("com.squareup.sqldelight")
-//    id("com.apollographql.apollo").version("2.4.6")
+    id("com.apollographql.apollo").version("2.5.10")
 }
 
 kotlin {
@@ -36,6 +36,8 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.3.1")
                 implementation("io.ktor:ktor-client-serialization:1.6.1")
                 implementation("com.squareup.sqldelight:runtime:$sqlDelightVersion")
+
+                implementation("com.apollographql.apollo:apollo-runtime-kotlin:2.5.10")
             }
         }
         val commonTest by getting {
@@ -95,13 +97,13 @@ android {
     }
 }
 
-//apollo {
-//    // instruct the compiler to generate Kotlin models
-//    generateKotlinModels.set(true)
-//}
+apollo {
+    // instruct the compiler to generate Kotlin models
+    generateKotlinModels.set(true)
+}
 
-//sqldelight {
-//    database("JustDesserts") {
-//        packageName = "com.example.justdesserts.shared.cache"
-//    }
-//}
+sqldelight {
+    database("JustDesserts") {
+        packageName = "com.example.justdesserts.shared.cache"
+    }
+}
