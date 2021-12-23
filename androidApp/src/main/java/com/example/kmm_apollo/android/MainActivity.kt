@@ -1,20 +1,17 @@
 package com.example.kmm_apollo.android
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import com.example.kmm_apollo.shared.Greeting
-import android.widget.TextView
+import android.app.Application
+import com.example.kmm_apollo.android.di.appModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 
-fun greet(): String {
-    return Greeting().greeting()
-}
+class MainActivity : Application() {
+    override fun onCreate() {
+        super.onCreate()
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val tv: TextView = findViewById(R.id.text_view)
-        tv.text = greet()
+        startKoin {
+            androidContext(this@MainActivity)
+            modules(appModule)
+        }
     }
 }

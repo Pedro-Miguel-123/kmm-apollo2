@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("com.apollographql.apollo").version("2.5.10")
 }
 
 android {
@@ -66,6 +67,7 @@ dependencies {
     //Coil
     implementation("io.coil-kt:coil-compose:1.3.2")
 
+    implementation("com.apollographql.apollo:apollo-runtime-kotlin:2.5.10")
     // Koin main features for Android
     implementation("io.insert-koin:koin-android:3.1.4")
     // No more koin-android-viewmodel, koin-android-scope, koin-android-fragment
