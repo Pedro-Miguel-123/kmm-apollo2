@@ -19,7 +19,7 @@ class ApolloProvider(databaseDriverFactory: DatabaseDriverFactory, myLogger: MyL
     @ApolloExperimental
     internal val apolloClient: ApolloClient = ApolloClient(
         networkTransport = ApolloHttpNetworkTransport(
-            serverUrl = "https://floating-thicket-73727.herokuapp.com/graphql",
+            serverUrl = "https://ktor-graphql-server2.herokuapp.com/graphql",
             headers = mapOf(
                 "Accept" to "application/json",
                 "Content-Type" to "application/json",
