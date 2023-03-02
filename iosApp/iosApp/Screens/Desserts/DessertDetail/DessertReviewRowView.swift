@@ -8,7 +8,7 @@
 import SwiftUI
 import shared
 import URLImage
-
+@available(iOS 14.0, *)
 struct DessertReviewRowView: View {
     let review: Review
     

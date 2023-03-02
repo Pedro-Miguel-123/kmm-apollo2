@@ -20,7 +20,9 @@ class DessertRepository(apolloProvider: ApolloProvider): BaseRepository(apolloPr
 
     suspend fun getDesserts(page: Int, size: Int): Desserts? {
         // 3 : For the response object, we can send a generated query called GetDessertsQuery, and execute it on the apollo client.
+        print("Num pages -> $page")
         val response = apolloClient.query(GetDessertsQuery(page, size)).execute().single()
+        println("Response -> $response")
         // 4 : Return the Desserts response object from the GraphQL server, and map it to our client-side models using toDesserts().
         return response.data?.desserts?.toDesserts()
     }

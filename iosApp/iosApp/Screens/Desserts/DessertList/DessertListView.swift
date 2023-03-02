@@ -7,7 +7,7 @@
 //
 import Foundation
 import SwiftUI
-
+@available(iOS 14.0, *)
 struct DessertListView: View {
     
     @StateObject var viewModel = ViewModelFactory.viewModel(forType: DessertListViewModel.self)

@@ -9,7 +9,7 @@
 import SwiftUI
 import URLImage
 import shared
-
+@available(iOS 14.0, *)
 struct DessertDetailView: View {
     
     @StateObject var viewModel = ViewModelFactory.viewModel(forType: DessertDetailViewModel.self)

@@ -7,7 +7,7 @@
 //
 import Foundation
 import SwiftUI
-
+@available(iOS 14.0, *)
 struct LoginView: View {
     @State private var login: Bool = true
     @State private var email: String = ""

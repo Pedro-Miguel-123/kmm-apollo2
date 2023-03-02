@@ -28,8 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import coil.annotation.ExperimentalCoilApi
-import coil.compose.rememberImagePainter
+import dev.chrisbanes.accompanist.coil.CoilImage
 import com.apollographql.apollo.api.ApolloExperimental
 import com.example.kmm_apollo.android.ui.desserts.review.ReviewListView
 import com.example.kmmapollo.shared.cache.Dessert
@@ -39,7 +38,6 @@ import org.koin.androidx.compose.getViewModel
 
 @ExperimentalCoroutinesApi
 @ApolloExperimental
-@ExperimentalCoilApi
 @Composable
 fun DessertDetailView(dessertId: String,
                       editDessertSelected: (dessertId: String) -> Unit,
@@ -84,7 +82,7 @@ fun DessertDetailView(dessertId: String,
                 title = { Text(dessert.name) },
                 navigationIcon = {
                     IconButton(onClick = { popBack() }) {
-                        Icon(Icons.Filled.ArrowBack, "")
+                        Icon(Icons.Filled.ArrowBack)
                     }
                 },
                 actions = {
@@ -98,9 +96,9 @@ fun DessertDetailView(dessertId: String,
                         setIsFavorite(!isFavorite)
                     }) {
                         if (isFavorite) {
-                            Icon(Icons.Outlined.Delete, "")
+                            Icon(Icons.Outlined.Delete)
                         } else {
-                            Icon(Icons.Filled.Favorite, "")
+                            Icon(Icons.Filled.Favorite)
                         }
                     }
                 }
@@ -111,7 +109,7 @@ fun DessertDetailView(dessertId: String,
                 FloatingActionButton(onClick = {
                     editDessertSelected(dessertId)
                 }, backgroundColor = MaterialTheme.colors.primary) {
-                    Icon(Icons.Outlined.Create, "")
+                    Icon(Icons.Outlined.Create)
                 }
             }
         }) {
@@ -129,7 +127,7 @@ fun DessertDetailView(dessertId: String,
                                 modifier = Modifier.size(150.dp),
                                 shape = RoundedCornerShape(25.dp)
                             ) {
-                                Image(painter = rememberImagePainter(data = imageUrl),"", contentScale = ContentScale.Crop)
+                                CoilImage(data = imageUrl, contentScale = ContentScale.Crop)
                             }
                         }
                     }
@@ -160,7 +158,7 @@ fun DessertDetailView(dessertId: String,
                             Button(onClick = {
                                 createReviewSelected(dessertId)
                             }) {
-                                Icon(Icons.Outlined.Add, "")
+                                Icon(Icons.Outlined.Add)
                             }
                         }
                     }

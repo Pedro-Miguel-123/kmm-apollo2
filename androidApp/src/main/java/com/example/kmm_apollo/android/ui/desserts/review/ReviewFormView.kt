@@ -79,7 +79,7 @@ fun ReviewFormView(reviewId: String, dessertId: String, action: ActionType, popB
                 title = { Text("$label Review") },
                 navigationIcon = {
                     IconButton(onClick = { popBack() }) {
-                        Icon(Icons.Filled.ArrowBack, "")
+                        Icon(Icons.Filled.ArrowBack)
                     }
                 }
             )
@@ -118,13 +118,13 @@ fun ReviewFormView(reviewId: String, dessertId: String, action: ActionType, popB
                                     IconButton(onClick = {
                                         setReview(review.copy(rating = rating.toLong()))
                                     }) {
-                                        Icon(Icons.Filled.Star, "", tint = MaterialTheme.colors.primary)
+                                        Icon(Icons.Filled.Star, tint = MaterialTheme.colors.primary)
                                     }
                                 } else {
                                     IconButton(onClick = {
                                         setReview(review.copy(rating = rating.toLong()))
                                     }) {
-                                        Icon(Icons.Filled.Star, "", tint = Color(0xFFd3d3d3))
+                                        Icon(Icons.Filled.Star, tint = Color(0xFFd3d3d3))
                                     }
                                 }
                             }

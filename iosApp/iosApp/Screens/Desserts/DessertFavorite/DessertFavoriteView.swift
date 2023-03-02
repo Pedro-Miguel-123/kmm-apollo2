@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+@available(iOS 14.0, *)
 struct DessertFavoriteView: View {
     @StateObject var viewModel = ViewModelFactory.viewModel(forType: DessertFavoriteViewModel.self)
     

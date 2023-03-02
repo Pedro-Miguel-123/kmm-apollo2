@@ -12,6 +12,7 @@ import com.example.kmmapollo.shared.cache.UserState
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.single
 
+@OptIn(ApolloExperimental::class, ExperimentalCoroutinesApi::class)
 class AuthRepository(apolloProvider: ApolloProvider): BaseRepository(apolloProvider) {
 
     @ExperimentalCoroutinesApi
@@ -30,8 +31,12 @@ class AuthRepository(apolloProvider: ApolloProvider): BaseRepository(apolloProvi
     @ExperimentalCoroutinesApi
     @ApolloExperimental
     suspend fun signUp(userInput: UserInput): String {
+        print(apolloClient)
+        print(userInput)
         val response = apolloClient.mutate(SignUpMutation(userInput)).execute().single()
+        print(response)
         response.data?.signUp?.let { data ->
+            println(data)
             data.user.also {
                 database.saveUserState(data.user.id, data.token)
             }

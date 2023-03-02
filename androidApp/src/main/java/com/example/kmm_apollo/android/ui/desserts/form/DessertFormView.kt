@@ -77,7 +77,7 @@ fun DessertFormView(dessertId: String, action: ActionType, popBack: () -> Unit) 
                 title = { Text("$label Dessert") },
                 navigationIcon = {
                     IconButton(onClick = { popBack() }) {
-                        Icon(Icons.Filled.ArrowBack, "")
+                        Icon(Icons.Filled.ArrowBack)
                     }
                 }
             )

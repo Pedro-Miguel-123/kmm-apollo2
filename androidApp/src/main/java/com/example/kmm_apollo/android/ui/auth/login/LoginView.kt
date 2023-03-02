@@ -44,7 +44,7 @@ fun LoginView(bottomBar: @Composable () -> Unit,
                             loginViewModel.deleteAuthToken()
                             setToken("")
                         }) {
-                            Icon(Icons.Default.ExitToApp, "")
+                            Icon(Icons.Default.ExitToApp)
                         }
                     }
                 }
@@ -54,7 +54,7 @@ fun LoginView(bottomBar: @Composable () -> Unit,
             FloatingActionButton(onClick = {
                 newDessertSelected()
             }, backgroundColor = MaterialTheme.colors.primary) {
-                Icon(Icons.Outlined.Add, "")
+                Icon(Icons.Outlined.Add)
             }
         },
         bottomBar = bottomBar) {

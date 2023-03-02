@@ -7,7 +7,7 @@
 //
 import Foundation
 import SwiftUI
-
+@available(iOS 14.0, *)
 struct ProfileView: View {
     @StateObject var viewModel = ViewModelFactory.viewModel(forType: ProfileViewModel.self)
     

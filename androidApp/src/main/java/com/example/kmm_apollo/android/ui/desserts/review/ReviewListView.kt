@@ -1,12 +1,12 @@
 package com.example.kmm_apollo.android.ui.desserts.review
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -24,8 +24,8 @@ import com.example.kmmapollo.shared.cache.Review
 fun ReviewListView(reviews: List<Review>, userId: String, editReviewSelected: (Review) -> Unit) {
     Column(modifier = Modifier.padding(horizontal = 16.dp)) {
         reviews.let { reviewsList ->
-            Column {
-                reviewsList.forEach { item ->
+            LazyColumn {
+                items(reviewsList) { item ->
                     item.let { review ->
                         val editable = userId == review.userId
                         Column(modifier = Modifier
@@ -50,16 +50,16 @@ fun ReviewListView(reviews: List<Review>, userId: String, editReviewSelected: (R
                                     List(5) {
                                         val rating = it + 1
                                         if (rating <= review.rating.toInt()) {
-                                            Icon(Icons.Filled.Star, "", tint = MaterialTheme.colors.primary)
+                                            Icon(Icons.Filled.Star, tint = MaterialTheme.colors.primary)
                                         } else {
-                                            Icon(Icons.Filled.Star, "", tint = Color(0xFFd3d3d3))
+                                            Icon(Icons.Filled.Star,  tint = Color(0xFFd3d3d3))
                                         }
                                     }
                                 }
 
                                 Row {
                                     if (editable) {
-                                        Icon(Icons.Outlined.Create, "")
+                                        Icon(Icons.Outlined.Create)
                                     }
                                 }
                             }

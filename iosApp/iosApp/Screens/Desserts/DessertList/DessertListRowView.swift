@@ -10,7 +10,7 @@ import SwiftUI
 import shared
 import URLImage
 
-     
+@available(iOS 14.0, *)
 struct DessertListRowView: View {
     let dessert: Dessert
     var body: some View {

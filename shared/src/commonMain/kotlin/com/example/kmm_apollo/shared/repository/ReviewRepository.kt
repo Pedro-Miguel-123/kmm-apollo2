@@ -12,6 +12,7 @@ import com.example.kmmapollo.shared.cache.Review
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.single
 
+@OptIn(ApolloExperimental::class, ExperimentalCoroutinesApi::class)
 class ReviewRepository(apolloProvider: ApolloProvider): BaseRepository(apolloProvider) {
 
     @ExperimentalCoroutinesApi

@@ -35,7 +35,7 @@ val mainAppModule = module {
     single { DessertRepository(get()) }
     single { AuthRepository(get()) }
     single { ReviewRepository(get()) }
-    single { ApolloProvider(DatabaseDriverFactory(get()), myLogger = MyLogger()) }
+    single { ApolloProvider(DatabaseDriverFactory(get())) }
     single { DatabaseDriverFactory(this.androidApplication().applicationContext) }
 }
 

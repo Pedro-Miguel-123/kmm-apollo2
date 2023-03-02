@@ -1,11 +1,14 @@
 pluginManagement {
     repositories {
-        google()
         gradlePluginPortal()
+        google()
+        jcenter()
         mavenCentral()
     }
 }
+rootProject.name = "JustDesserts"
 
-rootProject.name = "kmm-apollo"
+
 include(":androidApp")
 include(":shared")
+

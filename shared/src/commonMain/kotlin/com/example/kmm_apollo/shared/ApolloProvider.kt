@@ -11,7 +11,7 @@ import com.example.kmm_apollo.shared.logger.LoggingInterceptor
 import com.example.kmm_apollo.shared.logger.MyLogger
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-class ApolloProvider(databaseDriverFactory: DatabaseDriverFactory, myLogger: MyLogger) : TokenProvider {
+class ApolloProvider(databaseDriverFactory: DatabaseDriverFactory) : TokenProvider {
 
     internal val database = Database(databaseDriverFactory)
 
@@ -25,7 +25,7 @@ class ApolloProvider(databaseDriverFactory: DatabaseDriverFactory, myLogger: MyL
                 "Content-Type" to "application/json",
             ),
         ),
-        interceptors = listOf(BearerTokenInterceptor(this), LoggingInterceptor(myLogger))
+        interceptors = listOf(BearerTokenInterceptor(this))
     )
 
     override suspend fun currentToken(): String {

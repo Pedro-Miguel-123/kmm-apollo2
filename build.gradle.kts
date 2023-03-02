@@ -1,27 +1,24 @@
 buildscript {
     repositories {
         gradlePluginPortal()
+        jcenter()
         google()
         mavenCentral()
     }
-
-    val sqlDelightVersion: String by project
-
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.21")
         classpath("com.android.tools.build:gradle:7.0.4")
-        classpath("org.jetbrains.kotlin:kotlin-serialization:1.6.10")
-        classpath("com.squareup.sqldelight:gradle-plugin:$sqlDelightVersion")
+        classpath(SQLDelight.sqldelight)
     }
 }
+group = "com.example.justdesserts"
+version = "1.0-SNAPSHOT"
 
 allprojects {
     repositories {
         google()
         mavenCentral()
+        jcenter()
+        maven(url = "https://dl.bintray.com/ekito/koin")
     }
-}
-
-tasks.register("clean", Delete::class) {
-    delete(rootProject.buildDir)
 }

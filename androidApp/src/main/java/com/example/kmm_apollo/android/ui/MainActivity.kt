@@ -2,7 +2,7 @@ package com.example.kmm_apollo.android.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.compose.setContent
+import androidx.compose.ui.platform.setContent
 import androidx.compose.material.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
@@ -131,26 +131,20 @@ private fun BottomNavigation(
 ) {
     BottomNavigation {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
-        val currentRoute = navBackStackEntry?.destination?.route
+        val currentRoute = navBackStackEntry?.arguments?.getString(KEY_ROUTE)
 
         items.forEach { screen ->
             BottomNavigationItem(
-                icon = { screen.icon?.let { Icon(screen.icon, "") } },
+                icon = { screen.icon?.let { Icon(screen.icon) } },
                 label = { Text(screen.label) },
                 selected = currentRoute == screen.route,
                 onClick = {
                     // This if check gives us a "singleTop" behavior where we do not create a
                     // second instance of the composable if we are already on that destination
+                    // This if check gives us a "singleTop" behavior where we do not create a
+                    // second instance of the composable if we are already on that destination
                     if (currentRoute != screen.route) {
-                        navController.navigate(screen.route) {
-                            navController.graph.startDestinationRoute?.let { route ->
-                                popUpTo(route) {
-                                    saveState = true
-                                }
-                            }
-                            launchSingleTop = true
-                            restoreState = true
-                        }
+                        navController.navigate(screen.route)
                     }
                 }
             )
